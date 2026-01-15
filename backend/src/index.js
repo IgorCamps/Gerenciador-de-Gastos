@@ -12,6 +12,9 @@ app.get('/health', (req, res) => {
     res.json({ status: "ok"});
 });
 
+const gastosRoutes = require("./routes/gastos.routes");
+
+app.use("/gastos", gastosRoutes);
 
 
 const PORT = process.env.PORT || 3000;
