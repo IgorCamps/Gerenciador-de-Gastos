@@ -5,5 +5,89 @@
     "valor": 25,
     "categoria": "Alimentação",
     "data": "2026-01-14"
+  },
+  {
+    "id": "8c83b0ef-c778-4e51-a10c-511a5082f5ae",
+    "descricao": "Udemy",
+    "valor": 29,
+    "categoria": "Curso",
+    "data": "2026-09-21"
+  },
+  {
+    "id": "2e212578-bccf-46ea-9db5-c28fa624fc86",
+    "descricao": "a",
+    "valor": 1,
+    "categoria": "1",
+    "data": "2025-12-31"
+  },
+  {
+    "id": "14c831e2-48df-43b7-82a9-dc3a67d78e0d",
+    "descricao": "a",
+    "valor": 1,
+    "categoria": "1",
+    "data": "2025-12-31"
+  },
+  {
+    "id": "db303b01-d1c6-4ec1-842b-358cb673c83d",
+    "descricao": "Will Bank",
+    "valor": 463,
+    "categoria": "Banco",
+    "data": "2026-02-10"
+  },
+  {
+    "id": "3cf292d9-1be9-48eb-a69c-f1efc2eb9e72",
+    "descricao": "Morango",
+    "valor": 23,
+    "categoria": "mercado  ",
+    "data": "2026-06-21"
+  },
+  {
+    "id": "ae0461a8-2421-4e38-a4c7-868ee24682b9",
+    "descricao": "A",
+    "valor": 2,
+    "categoria": "alguel",
+    "data": "2026-01-22"
+  },
+  {
+    "id": "915d3c75-2871-4cec-9440-ae1c876c8738",
+    "descricao": "a",
+    "valor": 1,
+    "categoria": "alguel",
+    "data": "1111-11-11"
+  },
+  {
+    "id": "9010f796-fc6b-4349-af4c-b25d924bfb1b",
+    "descricao": "1",
+    "valor": 1,
+    "categoria": "laser",
+    "data": "1111-11-11"
+  },
+  {
+    "id": "79717a3a-f632-4c03-8cbd-5d2e389cec67",
+    "descricao": "1",
+    "valor": 1,
+    "categoria": "mercado  ",
+    "data": "1111-11-11"
+  },
+  {
+    "id": "96af4daa-80e9-46d9-8824-36c405862cbd",
+    "descricao": "1",
+    "valor": 1,
+    "categoria": "fincancas",
+    "data": "1111-11-11"
+  },
+  {
+    "id": "4e391c23-6305-4e39-9bb6-ce686f360243",
+    "descricao": "Casa",
+    "valor": 600,
+    "categoria": "Aluguel",
+    "data": "2026-02-05"
+  },
+  {
+    "id": "7eee10dc-5fb6-4b16-912b-0afa23960966",
+    "descricao": "Teste",
+    "valor": 10101,
+    "categoria": "Outro",
+    "data": "26666-06-21"
   }
 ]

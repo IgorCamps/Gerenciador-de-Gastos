@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+input, button, select {
+    padding: 8px;
+}
+
+li {
+    margin-bottom: 6px;
+}

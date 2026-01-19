@@ -6,6 +6,7 @@ const router = express.Router();
 
 // GET /gastos → listar todos os gastos
 router.get("/", (req, res) => {
+  
   const gastos = listarGastos();
   res.json(gastos);
 });

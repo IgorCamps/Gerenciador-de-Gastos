@@ -7,11 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
-app.get('/health', (req, res) => {
-    res.json({ status: "ok"});
-});
-
 const gastosRoutes = require("./routes/gastos.routes");
 
 app.use("/gastos", gastosRoutes);
