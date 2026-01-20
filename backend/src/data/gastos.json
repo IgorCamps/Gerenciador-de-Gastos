@@ -89,5 +89,19 @@
     "valor": 10101,
     "categoria": "Outro",
     "data": "26666-06-21"
+  },
+  {
+    "id": "12e5c88f-02ab-429c-b7c9-5e1b54c736c0",
+    "descricao": "Igor",
+    "valor": 100,
+    "categoria": "Outro",
+    "data": "2026-01-30"
+  },
+  {
+    "id": "b501fb38-c654-4a82-949a-9d30eaab671b",
+    "descricao": "Campos",
+    "valor": 122,
+    "categoria": "Banco",
+    "data": "2026-01-07"
   }
 ]
