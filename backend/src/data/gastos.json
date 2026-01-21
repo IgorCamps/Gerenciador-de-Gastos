@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": "3fafa75a-a0b2-486e-938c-8bb412ef3c10",
+    "descricao": "a",
+    "valor": 123,
+    "categoria": "Banco",
+    "data": "1111-11-11"
+  }
+]
