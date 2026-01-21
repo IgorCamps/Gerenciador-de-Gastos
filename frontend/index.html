@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,19 +15,21 @@
         <input type="number" id="valor" placeholder="Valor" required />
         <select id="categoria">
           <option value="Banco">Banco</option>
-          <option value="Mercado  ">Mercado</option>
+          <option value="Mercado">Mercado</option>
           <option value="Finanças">Finanças</option>
           <option value="Aluguel">Aluguel</option>
           <option value="Laser">Laser</option>
           <option value="Outro">Outro</option>
         </select>
-        
+
         <input type="date" id="data" required />
         <button type="submit">Adicionar</button>
       </form>
 
       <h2>Gastos</h2>
       <ul id="lista-gastos"></ul>
+
+      <h2>Total: R$ <span id="total-gastos">0.00</span></h2>
     </div>
     <script src="script.js"></script>
   </body>

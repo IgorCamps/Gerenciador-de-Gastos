@@ -18,7 +18,21 @@ function adicionarGasto(gasto) {
   return gasto;
 }
 
+// escluir um gasto
+function excluirGasto(id) {
+  const gastos = listarGastos();
+  const gastosFiltrados = gastos.filter((gasto) => gasto.id !== id);
+
+  fs.writeFileSync(
+    filePath,
+    JSON.stringify(gastosFiltrados, null, 2)
+  );
+
+  return gastosFiltrados;
+}
+
 module.exports = {
   listarGastos,
-  adicionarGasto
+  adicionarGasto,
+  excluirGasto
 };

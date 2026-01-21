@@ -1,12 +1,11 @@
 const express = require("express");
-const { listarGastos, adicionarGasto } = require("../services/gastos.service");
+const { listarGastos, adicionarGasto, excluirGasto } = require("../services/gastos.service");
 const { randomUUID } = require("crypto");
 
 const router = express.Router();
 
 // GET /gastos → listar todos os gastos
 router.get("/", (req, res) => {
-  
   const gastos = listarGastos();
   res.json(gastos);
 });
@@ -32,6 +31,15 @@ router.post("/", (req, res) => {
 
   const gastoCriado = adicionarGasto(novoGasto);
   res.status(201).json(gastoCriado);
+});
+
+// DELETE - excluir um gasto
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  excluirGasto(id);
+
+  res.status(204).send();
 });
 
 module.exports = router;
