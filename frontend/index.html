@@ -12,7 +12,7 @@
 
       <form id="form-gasto">
         <input type="text" id="descricao" placeholder="Nome" required />
-        <input type="number" id="valor" placeholder="Valor" required />
+        <input type="number" id="valor" step="0.01" placeholder="Valor" required />
         <select id="categoria">
           <option value="Banco">Banco</option>
           <option value="Mercado">Mercado</option>
@@ -34,6 +34,15 @@
         <option value="Aluguel">Aluguel</option>
         <option value="Laser">Laser</option>
         <option value="Outro">Outro</option>
+      </select>
+
+
+      <br>
+      <label for="filtro-ano">Filtrar por ano:</label>
+      <select id="filtro-ano">
+        <option value="">Todos</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
       </select>
       <h2>Gastos</h2>
       <ul id="lista-gastos"></ul>

@@ -4,10 +4,16 @@ const lista = document.getElementById("lista-gastos");
 const form = document.getElementById("form-gasto");
 const totalGastosElemento = document.getElementById("total-gastos");
 const filtro = document.getElementById("filtro-categoria");
+const filtroAno = document.getElementById("filtro-ano")
+const botaoSubmit = form.querySelector("button[type='submit']");
 
 let gastosGlobais = [];
+let gastoEmEdicaoId = null;
+let filtrosAtivos = {
+  categoria: "",
+  ano: ""
+};
 
-// Atualiza total
 function atualizarTotalGastos(gastos) {
   const total = gastos.reduce((soma, gasto) => {
     return soma + Number(gasto.valor);
@@ -16,7 +22,6 @@ function atualizarTotalGastos(gastos) {
   totalGastosElemento.textContent = total.toFixed(2);
 }
 
-// Renderiza lista
 function renderizarGastos(gastos) {
   lista.innerHTML = "";
 
@@ -28,25 +33,53 @@ function renderizarGastos(gastos) {
       gasto.valor
     ).toFixed(2)} (${gasto.categoria})`;
 
-    const button = document.createElement("button");
-    button.textContent = "Excluir";
+    const editarBtn = document.createElement("button");
+    editarBtn.textContent = gastoEmEdicaoId === gasto.id ? "Cancelar" : "Editar";
 
-    button.addEventListener("click", async () => {
+    const excluirBtn = document.createElement("button");
+    excluirBtn.textContent = "Excluir";
+
+    // EDITAR / CANCELAR
+    editarBtn.addEventListener("click", () => {
+      if (gastoEmEdicaoId === gasto.id) {
+        gastoEmEdicaoId = null;
+        form.reset();
+        botaoSubmit.textContent = "Adicionar";
+        editarBtn.textContent = "Cancelar"
+        renderizarGastos(gastosGlobais);
+        return
+      }
+
+      document.getElementById("descricao").value = gasto.descricao;
+      document.getElementById("valor").value = gasto.valor;
+      document.getElementById("categoria").value = gasto.categoria;
+      document.getElementById("data").value = gasto.data;
+
+      gastoEmEdicaoId = gasto.id;
+      botaoSubmit.textContent = "Salvar edição";
+
+      renderizarGastos(gastosGlobais);
+    });
+
+
+    // EXCLUIR
+    excluirBtn.addEventListener("click", async () => {
       await fetch(`${API_URL}/${gasto.id}`, {
         method: "DELETE",
       });
+
       carregarGastos();
     });
 
     li.appendChild(texto);
-    li.appendChild(button);
+    li.appendChild(editarBtn);
+    li.appendChild(excluirBtn);
     lista.appendChild(li);
   });
 
   atualizarTotalGastos(gastos);
 }
 
-// Carrega gastos
 async function carregarGastos() {
   try {
     const response = await fetch(API_URL);
@@ -61,23 +94,34 @@ async function carregarGastos() {
   }
 }
 
-// Filtro por categoria
-filtro.addEventListener("change", () => {
-  const categoriaSelecionada = filtro.value;
+function aplicarFiltros() {
+  let gastosFiltrados = [...gastosGlobais];
 
-  if (categoriaSelecionada === "") {
-    renderizarGastos(gastosGlobais);
-    return;
+  if (filtrosAtivos.categoria) {
+    gastosFiltrados = gastosFiltrados.filter(
+      (gasto) => gasto.categoria === filtrosAtivos.categoria
+    );
   }
 
-  const gastosFiltrados = gastosGlobais.filter(
-    (gasto) => gasto.categoria === categoriaSelecionada
-  );
+  if (filtrosAtivos.ano) {
+    gastosFiltrados = gastosFiltrados.filter(
+      (gasto) => new Date(gasto.data).getFullYear().toString() === filtrosAtivos.ano
+    );
+  }
 
   renderizarGastos(gastosFiltrados);
+};
+
+filtro.addEventListener("change", () => {
+  filtrosAtivos.categoria = filtro.value;
+  aplicarFiltros();
 });
 
-// Envio do formulário
+filtroAno.addEventListener("change", () => {
+  filtrosAtivos.ano = filtroAno.value;
+  aplicarFiltros();
+})
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -89,14 +133,23 @@ form.addEventListener("submit", async (event) => {
   };
 
   try {
-    const response = await fetch(API_URL, {
-      method: "POST",
+    const method = gastoEmEdicaoId ? "PUT" : "POST";
+    const url = gastoEmEdicaoId
+      ? `${API_URL}/${gastoEmEdicaoId}`
+      : API_URL;
+
+    const response = await fetch(url, {
+      method,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(gasto),
     });
 
-    if (!response.ok) throw new Error("Erro ao salvar gasto");
+    if (!response.ok) {
+      throw new Error("Erro ao salvar");
+    }
 
+    gastoEmEdicaoId = null;
+    botaoSubmit.textContent = "Adicionar";
     form.reset();
     carregarGastos();
   } catch (error) {
@@ -105,5 +158,16 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-// Inicialização
 carregarGastos();
+/*
+const gastos = [
+  {
+    "id" : "1234",
+    "descricao": "Teaste",
+    "valor": 123,
+    "categoria": "Banco",
+    "data": "2026-02-21"
+  }
+];
+renderizarGastos(gastos);
+*/
