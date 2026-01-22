@@ -1,5 +1,5 @@
 const express = require("express");
-const { listarGastos, adicionarGasto, excluirGasto } = require("../services/gastos.service");
+const { listarGastos, adicionarGasto, excluirGasto, atualizarGasto } = require("../services/gastos.service");
 const { randomUUID } = require("crypto");
 
 const router = express.Router();
@@ -42,4 +42,13 @@ router.delete("/:id", (req, res) => {
   res.status(204).send();
 });
 
+// PUT - atualiza um gasto
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const dadosAtualizados  = req.body;
+
+  atualizarGasto(id, dadosAtualizados);
+
+  res.status(204).json( { message: "Gasto atualizado com sucesso!" } );
+})
 module.exports = router;

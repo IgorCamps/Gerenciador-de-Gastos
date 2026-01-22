@@ -18,7 +18,7 @@ function adicionarGasto(gasto) {
   return gasto;
 }
 
-// escluir um gasto
+// excluir um gasto
 function excluirGasto(id) {
   const gastos = listarGastos();
   const gastosFiltrados = gastos.filter((gasto) => gasto.id !== id);
@@ -31,8 +31,31 @@ function excluirGasto(id) {
   return gastosFiltrados;
 }
 
+// atualizar um gasto
+function atualizarGasto(id, dadosAtualizados) {
+  const gasto = listarGastos();
+  const gastoFiltrado = gasto.map((gasto) => {
+    if (gasto.id === id) {
+      return {
+        ...gasto,
+        ...dadosAtualizados
+      };
+    }
+
+    return gasto;
+  });
+
+  fs.writeFileSync(
+    filePath,
+    JSON.stringify(gastoFiltrado, null, 2)
+  );
+
+  return gastoFiltrado;
+}
+
 module.exports = {
   listarGastos,
   adicionarGasto,
-  excluirGasto
+  excluirGasto,
+  atualizarGasto
 };
