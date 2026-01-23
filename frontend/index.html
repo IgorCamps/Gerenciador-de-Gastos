@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Gerenciador de Gastos</title>
+
+
   </head>
   <body>
     <div class="container">
@@ -12,7 +14,13 @@
 
       <form id="form-gasto">
         <input type="text" id="descricao" placeholder="Nome" required />
-        <input type="number" id="valor" step="0.01" placeholder="Valor" required />
+        <input
+          type="number"
+          id="valor"
+          step="0.01"
+          placeholder="Valor"
+          required
+        />
         <select id="categoria">
           <option value="Banco">Banco</option>
           <option value="Mercado">Mercado</option>
@@ -36,8 +44,8 @@
         <option value="Outro">Outro</option>
       </select>
 
+      <br />
 
-      <br>
       <label for="filtro-ano">Filtrar por ano:</label>
       <select id="filtro-ano">
         <option value="">Todos</option>

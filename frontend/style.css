@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', serif;
     margin: 40px auto;
     width: 100%;
     max-width: 600px;
@@ -28,3 +28,4 @@ input, button, select {
 li {
     margin-bottom: 6px;
 }
+

@@ -1,15 +1,8 @@
 [
   {
-    "id": "8d178764-7b67-439b-92de-4c82ec95b3d7",
-    "descricao": "Teste",
-    "valor": 1,
-    "categoria": "Banco",
-    "data": "2026-01-02"
-  },
-  {
-    "id": "ebdcb3c6-4252-489e-908f-5dd958b41ac5",
-    "descricao": "Igor Campos",
-    "valor": 1234,
+    "id": "4eb4ff0e-ba72-48e2-869d-bf681ca24ba4",
+    "descricao": "Will",
+    "valor": 123,
     "categoria": "Banco",
     "data": "2026-01-23"
   }
