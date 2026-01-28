@@ -159,15 +159,3 @@ form.addEventListener("submit", async (event) => {
 });
 
 carregarGastos();
-/*
-const gastos = [
-  {
-    "id" : "1234",
-    "descricao": "Teaste",
-    "valor": 123,
-    "categoria": "Banco",
-    "data": "2026-02-21"
-  }
-];
-renderizarGastos(gastos);
-*/
